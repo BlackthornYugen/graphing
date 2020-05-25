@@ -1,10 +1,15 @@
-#!/usr/bin/env #!/usr/bin/env bash
-set +x
-scp -P 3514 admin@home.steelcomputers.com:a .
-#jq --arg filter a0a --slurp --raw --from-file ~/jq/format_moz_1.jq < a
+#!/usr/bin/env bash
+#set -x
 
-for id in `jq --slurp --from-file get_temp_ids.jq --raw-output a`; do
-  echo
+JQ_INPUT=a.json
+FILTER_IDS=`jq --slurp --from-file get_temp_ids.jq --raw-output $JQ_INPUT`
+scp servername_goes_here:a $JQ_INPUT
+
+time jq --arg timeformat \%s --slurp --raw-output --from-file \
+  ~/jq/format_moz_1.jq < $JQ_INPUT | tail -n3
+
+for id in $FILTER_IDS; do
+  echo -e \\n$id:
   jq --arg filter $id --slurp --raw-output --from-file \
-    ~/jq/format_moz_1.jq < a
+    ~/jq/format_moz_1.jq < $JQ_INPUT
 done
