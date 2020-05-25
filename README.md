@@ -25,7 +25,7 @@ very well. It broke every time I updated the soruce data.
 ## jp - Dead simple terminal plots
 https://github.com/sgreben/jp
 
-!()[https://imgur.com/a/mc0Zotg.gif]
+![jp animated temperature graphs](https://imgur.com/a/mc0Zotg.gif)
 Pretty nice job, but I [can't specify the min/max for x or y](https://github.com/sgreben/jp/issues/24).
 Also I think you are only able to plot one thing at a time. If I could define
 the x/y min/max I think I could draw multiple times with different colours.
@@ -36,7 +36,7 @@ axis.
 ## matplotlib - Python Graphing
 https://matplotlib.org/
 
-!()[https://imgur.com/a/gHs7LDp]
+![matplotlib temperature graph](https://imgur.com/a/gHs7LDp)
 
 It's doing pretty well but takes a bit more to learn. Pretty graphs and even
 animation. Just need to finish making a tool that will graph using data from
